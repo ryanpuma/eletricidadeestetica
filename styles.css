@@ -301,6 +301,7 @@ h1 {
         height: 2px; /* thickness of the line */
         background-color: black; /* colour of the line */
         border: none; /* no border */
+        overflow-x: hidden;
       }
       
     a {
@@ -325,6 +326,7 @@ h1 {
         border: 0px solid #ccc;
         padding: 10px;
         font-size: 1em;
+        overflow-x: hidden;
     }
 
     .item.hidden {
@@ -381,6 +383,7 @@ h1 {
         cursor: pointer; /* Altera o cursor para indicar que o objeto é clicável */
         animation: girar 7s linear infinite; /* Aplica a animação de girar infinitamente */
         z-index: 1; 
+        overflow-x: hidden;
     }
 
     .nav-menu {
