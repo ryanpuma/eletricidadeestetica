@@ -1,0 +1,401 @@
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Rubik", sans-serif;
+    background-color: #fff8af;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-conic-gradient(#00000000 0.000077%, #000 0.0005%);
+    mix-blend-mode: soft-light;
+  }
+
+p {
+    font-size: 16px; /* Define o tamanho da fonte para os parágrafos */
+    color: #000000; /* Define a cor do texto para os parágrafos */
+    line-height: 1.5; /* Define a altura da linha para melhor legibilidade */
+    margin-bottom: 10px; /* Adiciona uma margem inferior para espaçamento */
+}
+
+header {
+    display: none;
+}
+
+.slider-description {
+    font-size: 13px; /* Define o tamanho da fonte */
+    color: #666; /* Define a cor do texto */
+    margin-top: 10px; /* Adiciona uma margem superior para espaçamento */
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px; /* Define o tamanho da fonte para h1 */
+    color: #333; /* Define a cor do texto para h1 */
+    margin-bottom: 10px; /* Adiciona uma margem inferior para espaçamento */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 90vw;
+    height: 90vh;
+    padding-bottom: 0px; /* Espaço extra no fundo */
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.item.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #fdf274;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none; /* Para garantir que não interfira nas interações do mouse */
+    transition: transform 0.1s ease-out;
+    z-index: 0; /* Para garantir que fique no fundo */
+    top: 0; /* Certifique-se de que a .blob comece na parte superior */
+    left: 0; /* e na esquerda da tela */
+    overflow: auto;
+}
+
+.blob::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: inherit;
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: blobMove 20s infinite;
+    overflow: auto;
+}
+
+@keyframes blobMove {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-10%, -10%);
+    }
+    50% {
+        transform: translate(10%, -10%);
+    }
+    75% {
+        transform: translate(-10%, 10%);
+    }
+}
+
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0px solid #f0a500;
+    font-weight: bold;
+    padding: 10px;
+    position: relative;
+}
+
+.logo {
+    width: 100%; /* Ajuste conforme necessário */
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2; 
+}
+
+.logo-container-mobile {
+    display: none;
+}
+
+.objeto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; /* Ajuste conforme necessário */
+    height: 400px; /* Ajuste conforme necessário */
+    cursor: pointer; /* Altera o cursor para indicar que o objeto é clicável */
+    animation: girar 7s linear infinite; /* Aplica a animação de girar infinitamente */
+    z-index: 1; 
+}
+
+@keyframes girar {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg); /* Começa a rotação a partir de 0 graus */
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg); /* Completa uma rotação de 360 graus */
+    }
+}
+
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000;
+    margin: 0 10px;
+    z-index: 2; 
+}
+
+.nav-menu a:hover {
+    color: #ed3237; /* Altere a cor para a desejada ao passar o mouse */
+    /* Você também pode alterar outros estilos, como fundo, borda, etc. */
+}
+
+/* Estilos para o botão de menu e dropdown no mobile */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.image-comparison-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.img-raw, .img-final {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Adicione estas linhas ao seu arquivo CSS */
+
+.img-final {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Inicialmente posicione o slider no meio */
+    width: 5px;
+    height: 100%;
+    background-color: #fff8af;
+    cursor: ew-resize;
+    z-index: 10;
+}
+
+
+@media (max-width: 968px) {
+
+    body {
+     overflow: scroll;
+    }
+
+    .index-page {
+        overflow: hidden;
+    };
+
+    p {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    header {
+        display:contents;
+    }
+
+    .menu-mobile {
+        text-align: center;
+    }
+
+    .menu-mobile a {
+        color: #000;
+        z-index: 2; 
+    }
+    
+    .menu-mobile a:hover {
+        color: #ed3237; /* Altere a cor para a desejada ao passar o mouse */
+        /* Você também pode alterar outros estilos, como fundo, borda, etc. */
+    }
+
+    .menu-mobile-index {
+        text-align: center;
+        z-index: 100;
+        font-size: 20px;
+    }
+
+    .menu-mobile-index a {
+        color: #000;
+        z-index: 2; 
+    }
+
+    .menu-mobile-index a:hover {
+        color: #ed3237; /* Altere a cor para a desejada ao passar o mouse */
+        /* Você também pode alterar outros estilos, como fundo, borda, etc. */
+    }
+
+    hr {
+        margin: 2em auto; /* centred margin */
+        height: 2px; /* thickness of the line */
+        background-color: black; /* colour of the line */
+        border: none; /* no border */
+      }
+      
+    a {
+        color: black;
+    }
+      
+
+    .slider-description {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, auto);
+        gap: 5px;
+        width: 100vw;
+        padding-bottom: 100px;
+    }
+
+    .item {
+        border: 0px solid #ccc;
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .item.hidden {
+        display: none;
+    }
+
+    .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #9acca9;
+        padding: 10px;
+        border: none;
+        text-align: left;
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo {
+        width: 200px; /* Ajuste conforme necessário */
+        margin-bottom: 0;
+        padding: 10px;    
+        filter: drop-shadow(0 0 9px rgba(255,248,175,255));
+    }
+
+    .logo-mobile {
+        width: 300px; /* Ajuste conforme necessário */
+        height: auto;
+        margin-bottom: 0;
+        margin-top: 200px;
+        padding: 10px;    
+        filter: drop-shadow(0 0 9px rgba(255,248,175,255));
+        z-index: 2; 
+    }
+
+    .logo-container-mobile {
+        display: flex;
+    }
+
+    .objeto {
+        display: none;
+    }
+
+    .objeto-mobile{
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px; /* Ajuste conforme necessário */
+        height: 1000px; /* Ajuste conforme necessário */
+        cursor: pointer; /* Altera o cursor para indicar que o objeto é clicável */
+        animation: girar 7s linear infinite; /* Aplica a animação de girar infinitamente */
+        z-index: 1; 
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        background-color: #9acca9;
+        padding: 10px 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0;
+    }
+    .nav-menu a {
+        margin: 10px 0;
+        padding: 10px;
+        text-align: center;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .nav-menu.active {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
