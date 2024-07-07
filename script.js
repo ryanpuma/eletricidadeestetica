@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add('loaded');
+});
+
+document.addEventListener("DOMContentLoaded", function() {
     const items = document.querySelectorAll('.item');
     items.forEach(item => {
         item.classList.add('loaded');
