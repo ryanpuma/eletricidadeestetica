@@ -12,6 +12,11 @@ body, html {
     overflow-x: hidden;
 }
 
+body.loaded {
+    opacity: 1;
+}
+
+
 body::before {
     content: "";
     position: fixed;
