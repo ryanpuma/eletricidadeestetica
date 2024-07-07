@@ -241,7 +241,9 @@ h1 {
 @media (max-width: 968px) {
 
     body {
-     overflow: scroll;
+     max-width: 100%;
+     overflow-x: hidden;
+     overflow-y: scroll;
     }
 
     .index-page {
