@@ -8,6 +8,8 @@ body, html {
     align-items: center;
     font-family: "Rubik", sans-serif;
     background-color: #fff8af;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body::before {
