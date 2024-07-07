@@ -23,7 +23,8 @@ body::before {
     inset: 0;
     background: repeating-conic-gradient(#00000000 0.000077%, #000 0.0005%);
     mix-blend-mode: soft-light;
-  }
+    overflow-x: hidden;
+}
 
 p {
     font-size: 16px; /* Define o tamanho da fonte para os parágrafos */
@@ -160,6 +161,7 @@ h1 {
     cursor: pointer; /* Altera o cursor para indicar que o objeto é clicável */
     animation: girar 7s linear infinite; /* Aplica a animação de girar infinitamente */
     z-index: 1; 
+    overflow-x: hidden;
 }
 
 @keyframes girar {
